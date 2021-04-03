@@ -1,0 +1,36 @@
+trigger:
+- {{cookiecutter.project_branch}}
+
+pool:
+  vmImage: ubuntu-18.04
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.9'
+  displayName: 'use python 3.9'
+
+- script: |
+    python -m pip install --upgrade pip setuptools wheel
+    pip install -r requirements.txt
+  displayName: 'install dependencies'
+
+- script: |
+    python -m pylint --max-line-length=79 --unsafe-load-any-extension=y --ignore=.git,venv,.vscode,__pycache__ {{cookiecutter.package_name}} || exit 1
+  displayName: 'pylint'
+
+- script: |
+    python -m flake8 --exclude=venv,.git,__pycache__ || exit 1
+  displayName: 'flake8'
+
+- script: |
+    python -m mypy --ignore-missing-imports --follow-imports=silent --show-column-numbers --strict --exclude venv . || exit 1
+  displayName: 'mypy'
+
+- script: |
+    python -m coverage run -m unittest tests.main
+  displayName: 'unittests'
+
+- script: |
+    python -m coverage report --fail-under=85 --omit="venv/*,tests/*"
+  displayName: 'code coverage report'

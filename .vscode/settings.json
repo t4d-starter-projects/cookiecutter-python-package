@@ -1,0 +1,10 @@
+{
+    "editor.rulers": [
+        79
+    ],
+    "editor.formatOnSave": true,    
+    "[markdown]": {
+        "editor.wordWrap": "wordWrapColumn",
+        "editor.wordWrapColumn": 79,
+    },
+}
