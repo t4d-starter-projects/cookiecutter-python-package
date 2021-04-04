@@ -22,4 +22,4 @@ steps:
     displayName: "Twine Authenticate"
 
   - script: |
-      python -m twine upload -r {{cookiecutter.project_feed}} --config-file $(PYPIRC_PATH) dist/*.whl
+      python -m twine upload -r {{cookiecutter.project_feed}} --verbose --config-file $(PYPIRC_PATH) dist/*.whl
