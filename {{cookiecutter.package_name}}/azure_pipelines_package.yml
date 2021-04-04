@@ -1,28 +1,25 @@
-trigger:
-- {{cookiecutter.project_branch}}
-
 pool:
   vmImage: ubuntu-18.04
 
 steps:
-- task: UsePythonVersion@0
-  inputs:
-    versionSpec: '3.9'
-  displayName: 'use python 3.9'
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: "3.9"
+    displayName: "use python 3.9"
 
-- script: |
-    python -m pip install --upgrade pip setuptools wheel
-    pip install -r requirements.txt
-  displayName: 'install dependencies'
+  - script: |
+      python -m pip install --upgrade pip setuptools wheel
+      pip install -r requirements.txt
+    displayName: "install dependencies"
 
-- script: |
-    python setup.py sdist bdist_wheel
-  displayName: 'package it up'
+  - script: |
+      python setup.py sdist bdist_wheel
+    displayName: "package it up"
 
-- task: TwineAuthenticate@1
-  inputs: 
-    artifactFeed: "{{cookiecutter.project_name}}/{{cookiecutter.project_feed}}"
-  displayName: 'Twine Authenticate'
+  - task: TwineAuthenticate@1
+    inputs:
+      artifactFeed: "{{cookiecutter.project_name}}/{{cookiecutter.project_feed}}"
+    displayName: "Twine Authenticate"
 
-- script: |
-    python -m twine upload -r {{cookiecutter.project_feed}} --config-file $(PYPIRC_PATH) dist/*.whl
+  - script: |
+      python -m twine upload -r {{cookiecutter.project_feed}} --config-file $(PYPIRC_PATH) dist/*.whl

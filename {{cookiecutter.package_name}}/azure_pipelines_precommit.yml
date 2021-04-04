@@ -1,6 +1,3 @@
-trigger:
-  - { { cookiecutter.project_branch } }
-
 pool:
   vmImage: ubuntu-18.04
 
