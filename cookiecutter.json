@@ -1,9 +1,9 @@
 {
-    "project_name": "",
+    "project_name": "demo_project",
     "project_feed": "",
-    "package_name": "",
+    "package_name": "demo_project",
     "package_desc": "A new package.",
-    "author_name": "",
-    "author_email": "",
+    "author_name": "John Doe",
+    "author_email": "jdoe@t4d.io",
     "author_url": ""
 }
