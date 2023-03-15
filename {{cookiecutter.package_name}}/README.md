@@ -141,7 +141,7 @@ python -m mypy --ignore-missing-imports --follow-imports=silent --show-column-nu
 **Run the Unit Tests with Code Coverage**
 
 ```bash
-python -m coverage run -m unittest tests.__main__
+python -m coverage run -m pytest tests
 ```
 
 **Generate Code Coverage Report**

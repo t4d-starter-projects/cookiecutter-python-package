@@ -1,11 +1,9 @@
 """ Test Sample Module """
 
-from unittest import TestCase, main
-
 from {{cookiecutter.package_name}}.some_pkg.some_mod import do_it
 
 
-class TestSample(TestCase):
+class TestSample:
     """ Test Sample Class """
 
     def test_sample(self) -> None:
@@ -13,8 +11,4 @@ class TestSample(TestCase):
 
         result = do_it()
 
-        self.assertEqual(result, True)
-
-
-if __name__ == "__main__":
-    main()
+        assert result is True

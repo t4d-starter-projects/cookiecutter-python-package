@@ -1,9 +1,9 @@
 {
     "project_name": "demo_project",
-    "project_feed": "",
+    "project_feed": "Leave Blank",
     "package_name": "demo_project",
-    "package_desc": "A new package.",
-    "author_name": "John Doe",
-    "author_email": "jdoe@t4d.io",
-    "author_url": ""
+    "package_desc": "Describe your package in one short sentence.",
+    "author_name": "Your Name",
+    "author_email": "Your Email",
+    "author_url": "Your Web Site"
 }

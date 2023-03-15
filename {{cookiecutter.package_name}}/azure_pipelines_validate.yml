@@ -4,8 +4,8 @@ pool:
 steps:
   - task: UsePythonVersion@0
     inputs:
-      versionSpec: "3.9"
-    displayName: "use python 3.9"
+      versionSpec: "3.11"
+    displayName: "use python 3.11"
 
   - script: |
       python -m pip install --upgrade pip setuptools wheel
@@ -25,7 +25,7 @@ steps:
     displayName: "mypy"
 
   - script: |
-      python -m coverage run -m unittest tests.__main__
+      python -m coverage run -m pytest tests
     displayName: "unittests"
 
   - script: |
